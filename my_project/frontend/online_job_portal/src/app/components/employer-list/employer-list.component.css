@@ -1,0 +1,51 @@
+.header {
+    text-align: center;
+    font-weight: bold;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+}
+
+.table th,
+.table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+}
+
+/* Style the table header */
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.table-striped tbody tr:nth-of-type(even) {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.table th {
+    font-weight: bold;
+    background-color: #f8f9fa;
+}
+
+
+.table td {
+    font-weight: normal;
+}
+
+
+.container {
+    margin-top: 2rem;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+}

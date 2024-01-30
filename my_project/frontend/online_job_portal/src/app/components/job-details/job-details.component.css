@@ -1,0 +1,22 @@
+
+.container-fluid {
+   body.fixed-sn #page-top, body.fixed-sn footer{position: fixed;}  /* Fixed Navbar when at top */
+  }
+  
+  h3{
+    text-align: center;
+
+  }
+  .col-4 {
+  background-color:#f8f9fa;
+  }
+  
+  img {
+    max-width:100%;
+  }
+  
+  h3 {
+text-align: center;
+font-weight: bold;
+  }
+  

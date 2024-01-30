@@ -1,0 +1,17 @@
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  td {
+    background-color: #ffffff;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  thead {
+    background-color: #333333;
+    color: #ffffff;
+  }

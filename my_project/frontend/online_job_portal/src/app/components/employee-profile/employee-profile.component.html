@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <div> <a class="navbar-brand" routerLink="/employee-page"><i class="fa-solid fa-magnifying-glass"></i>online job
+        portal</a>
+      <a class="navbar-brand" routerLink="/about-us"> About us</a>
+      <a class="navbar-brand" routerLink="/contact-us">Contact us</a>
+    </div>
+
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="bar">
+      <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/employee-profile">
+              <p>My Profile</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/employee-jobapplications">
+              <p>Applied Jobs</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/jobs">
+              <p>jobs</p>
+            </a>
+          </li>
+          <li><button class="btn" (click)="Logout()">
+              <i style="color: #f10606">Logout</i>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>
+<div class="card col-4  " style="width: 18rem ;padding-left: 10px;">
+  <a routerLink="/products/{{ employee.employeeId }}">
+    <img src="/assets/profileImg.png" class="card-img-top" alt="product.imageUrl" />
+  </a>
+  <div class="card-body">
+    <h5 class="card-title">{{employee.emailId}}</h5>
+    <p class="card-text"> {{ employee.contactNo }}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"> {{employee.firstName}} {{employee.lastName}}</li>
+    <li class="list-group-item"> {{ employee.city }}</li>
+    <li class="list-group-item"> {{ employee.registrationDate}}</li>
+    <li class="list-group-item"> {{ employee.city}}</li>
+    
+  </ul>
+  <div class="card-body">
+
+
+  </div>
+</div>

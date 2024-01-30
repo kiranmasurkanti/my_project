@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <div> <a class="navbar-brand" href="#"><i class="fa-solid fa-magnifying-glass"></i>online job portal</a>
+            <a class="navbar-brand" routerLink="/about-us"> About us</a>
+            <a class="navbar-brand" routerLink="/contact-us">Contact us</a>
+        </div>
+
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="bar">
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/register-employer">
+                            <p>register employer</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/register-employee">
+                            <p>register Employee</p>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button"
+                          data-bs-toggle="dropdown" aria-expanded="false">Login</a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
+                          <li><a class="dropdown-item" routerLink="/login" routerLinkActive="active">employee</a></li>
+                          <li><a class="dropdown-item" routerLink="/login-employer" routerLinkActive="active">employer</a></li>
+                          <li><a class="dropdown-item" routerLink="/login-admin" routerLinkActive="active">admin</a></li>
+                        </ul>
+                      </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<router-outlet></router-outlet>
+
+<form #data="ngForm" [formGroup]="loginForm" (ngSubmit)="login(data)">
+
+
+    <div class="container">
+
+        <label for="adminId"><b>AdminId</b></label>
+        <input type="number" placeholder="Enter your Id" name="adminId" formControlName="adminId">
+        <span *ngIf="emailId && emailId.touched && emailId.invalid" style="color: red; ">Invalid emailId</span>
+
+
+
+        <label for="email"><b>EmailId</b></label>
+        <input type="text" placeholder="Enter user Email" name="emailId" formControlName="email">
+        <span *ngIf="emailId && emailId.touched && emailId.invalid" style="color: red; ">Invalid emailId</span>
+
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" formControlName="password">
+        <span *ngIf="password && password.invalid && password.touched" style="color: red">Invalid password</span><br>
+
+        <button (click)="submit()" type="submit">Sign In</button>
+
+        Forgot Password? <button (click)="submit()" style="width: 80px; height: 40px;" type="submit">Reset</button>
+    </div>
+</form>

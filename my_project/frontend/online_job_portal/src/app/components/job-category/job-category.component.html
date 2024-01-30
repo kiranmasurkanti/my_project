@@ -1,0 +1,98 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+    <div class="container-fluid">
+      <div> <a class="navbar-brand" routerLink="/admin-page"><i class="fa-solid fa-magnifying-glass"></i>online job portal</a>
+        <a class="navbar-brand" routerLink="/about-us"> About us</a>
+        <a class="navbar-brand" routerLink="/contact-us">Contact us</a>
+      </div>
+  
+  
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="bar">
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+  
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/register-admin">
+                <p>register Admin</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/employee-list">
+                <p>All Employees</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/employer-list">
+                <p>All Employers</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/job-category">
+                <p>Add Category</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/job-list">
+                <p>All Jobs</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/list-jobcategories">
+                <p> Category List</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/list-jobapplications">
+                <p> All Job Applicattions</p>
+              </a>
+            </li>
+            <li><button class="btn" (click)="Logout()">
+              <i style="color: #f10606">Logout</i>
+            </button>
+          </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
+
+<div class="container justify-content-center col-6">
+    <h2>Add New Category</h2>
+    <hr />
+    <form [formGroup]="jobCategoryFormGroup" (ngSubmit)="addJobCategory()">
+        <!--Employee Name -->
+        <div class="mb-3">
+            <label class="form-label">Job Category</label>
+            <input type="name" class="form-control" formControlName="jobCategory" />
+            <div *ngIf="
+          jobCategoryFormGroup.controls['jobCategory'].touched ||
+          jobCategoryFormGroup.controls['jobCategory'].dirty
+          ">
+
+                <div class="alert alert-danger"
+                    *ngIf="jobCategoryFormGroup.controls['jobCategory'].errors?.['required']">
+                    please enter job category
+                </div>
+                <div class="alert alert-danger"
+                    *ngIf="jobCategoryFormGroup.controls['jobCategory'].errors?.['pattern']">
+                    category name is invalid.only alphabets are allowed
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="mb-3">
+            <input type="submit" value="Add Job Category" class="btn btn-primary"
+                [disabled]="jobCategoryFormGroup.invalid" />
+        </div>
+          
+    </form>
+</div>
+
+  

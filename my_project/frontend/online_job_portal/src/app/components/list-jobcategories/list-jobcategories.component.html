@@ -1,0 +1,90 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+    <div class="container-fluid">
+      <div> <a class="navbar-brand" routerLink="/admin-page"><i class="fa-solid fa-magnifying-glass"></i>online job portal</a>
+        <a class="navbar-brand" routerLink="/about-us"> About us</a>
+        <a class="navbar-brand" routerLink="/contact-us">Contact us</a>
+      </div>
+  
+  
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="bar">
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+  
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/register-admin">
+                <p>register Admin</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/employee-list">
+                <p>All Employees</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/employer-list">
+                <p>All Employers</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/job-category">
+                <p>Add Category</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/job-list">
+                <p>All Jobs</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/list-jobcategories">
+                <p> Category List</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/list-jobapplications">
+                <p> All Job Applicattions</p>
+              </a>
+            </li>
+            <li><button class="btn" (click)="Logout()">
+              <i style="color: #f10606">Logout</i>
+            </button>
+          </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
+<div class="container">
+    <h1>Category List</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Category Name</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let category of jobCategories">
+                <td>{{category.categoryId}}</td>
+                <td>{{category.jobCategory}}</td>
+
+                <td>
+                    <button class="btn btn-danger" (click)="removeCategory(category.categoryId)">
+                        DELETE
+                    </button>
+                    <button class="btn btn-success" (click)="showEdit(category.categoryId)">
+                        UPDATE
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

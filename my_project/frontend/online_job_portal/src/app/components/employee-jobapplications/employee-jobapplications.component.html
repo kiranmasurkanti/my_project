@@ -1,0 +1,80 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <div> <a class="navbar-brand" routerLink="/employee-page"><i class="fa-solid fa-magnifying-glass"></i>online job
+                portal</a>
+            <a class="navbar-brand" routerLink="/about-us"> About us</a>
+            <a class="navbar-brand" routerLink="/contact-us">Contact us</a>
+        </div>
+
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="bar">
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/employee-profile">
+                            <p>My Profile</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/employee-jobapplications">
+                            <p>Applied Jobs</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/jobs">
+                          <p>jobs</p>
+                        </a>
+                      </li>
+                    <li><button class="btn" (click)="Logout()">
+                            <i style="color: #f10606">Logout</i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<router-outlet></router-outlet>
+<div class="container">
+    <h1> My Job-Applications</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Application Id</th>
+                <th>Job Category</th>
+                <th>JOB name</th>
+                <th>company Name</th>
+                <th>job Type</th>
+                <th>salary Range</th>
+                <th>job Id</th>
+                <th>job location</th>
+
+
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let jobApplications of jobApplications">
+                <td>{{jobApplications.applicationId}}</td>
+                <td>{{jobApplications.job.category.jobCategory}}</td>
+                <td>{{jobApplications.job.title}}</td>
+                <td>{{jobApplications.job.companyName}}</td>
+                <td>{{jobApplications.job.jobType}}</td>
+                <td>{{jobApplications.job.salaryRange}}</td>
+                <td>{{jobApplications.job.jobId}}</td>
+                <td>{{jobApplications.job.city}}</td>
+
+
+
+                <td>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

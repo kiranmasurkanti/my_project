@@ -1,0 +1,79 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <div> <a class="navbar-brand" routerLink="/employer-page"><i class="fa-solid fa-magnifying-glass"></i>online job
+          portal</a>
+        <a class="navbar-brand" routerLink="/about-us"> About us</a>
+        <a class="navbar-brand" routerLink="/contact-us"></a>
+      </div>
+  
+  
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="bar">
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/post-job">
+                <p>add Job</p>
+  
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/employer-jobs">
+                <p>My Jobs</p>
+              </a>
+            </li> 
+  
+            <li><button class="btn" (click)="Logout()">
+                <i style="color: #f10606">Logout</i>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
+<div>
+    <h1>Job-Application Details</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Application Id</th>
+                <th>Employee Id</th>
+                <th>employee Name</th>
+                <th>emailId</th>
+                <th>contactNo</th>
+                <th>location</th>
+
+                <th>JOB ID</th>
+                <th>job Name</th>
+                <th>category</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+         
+                <tr *ngFor="let jobApplications of jobapplications">
+                <td>{{jobApplications.applicationId}}</td>
+                <td>{{jobApplications.employee.employeeId}}</td>
+                <td>{{jobApplications.employee.lastName}}</td>
+                <td>{{jobApplications.employee.emailId}}</td>
+                    <td>{{jobApplications.employee.contactNo}}</td>
+                    <td>{{jobApplications.employee.city}}</td>
+                <td>{{jobApplications.job.jobId}}</td>
+                <td>{{jobApplications.job.title}}</td>
+                <td>{{jobApplications.job.category.jobCategory}}</td>
+
+
+                <td>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

@@ -1,0 +1,38 @@
+.navbar {
+  background-color: #f8f9fa; 
+}
+
+.navbar-brand {
+  font-weight: bold;
+}
+
+.nav-link {
+  color: #000;}
+
+.nav-link:hover {
+  color: #f10606; 
+}
+
+.btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.card {
+  width: 18rem;
+  padding-left: 10px;
+}
+
+.card-img-top {
+  width: 100%;
+  height: auto;
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+.list-group-item {
+  font-size: 14px;
+}

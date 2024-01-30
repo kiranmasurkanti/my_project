@@ -1,0 +1,64 @@
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <div> <a class="navbar-brand" routerLink="/employee-page"><i class="fa-solid fa-magnifying-glass"></i>online job portal</a>
+      <a class="navbar-brand" routerLink="/about-us"> About us</a>
+      <a class="navbar-brand" routerLink="/contact-us">Contact us</a>
+    </div>
+
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="bar">
+      <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/employee-profile">
+              <p>My Profile</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/employee-jobapplications">
+              <p>Applied Jobs</p>
+            </a>
+          </li>
+          <li><button class="btn" (click)="Logout()">
+            <i style="color: #f10606">Logout</i>
+          </button>
+        </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>
+
+<div class="row justify-content-center" >
+
+
+<div *ngFor="let job of jobs" class="card col-4  " style="width: 18rem ;padding-left: 10px;">
+  <a routerLink="/job/{{ job.jobId }}">
+  <img src="assets/job-image-1.jpg" class="card-img-top" alt="product.imageUrl"/>
+</a>
+  <div class="card-body">
+    <h5 class="card-title">{{job.title}}</h5>
+    <p class="card-text">   {{ job.jobDescription }}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"> {{ job.companyName }}</li>
+    <li class="list-group-item"> {{ job.skillsRequired }}</li>
+    <li class="list-group-item"> {{ job.jobType }}</li>
+    <li class="list-group-item"> {{ job.category.jobCategory }}</li>
+    <li class="list-group-item"> {{ job.salaryRange }}</li>
+  </ul>
+ 
+</div>
+</div>
+
+
+<div *ngIf="jobs.length === 0" class="alert alert-warning col-12">
+  No products found
+</div>

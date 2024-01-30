@@ -1,0 +1,181 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <div> <a class="navbar-brand" routerLink="/employer-page"><i class="fa-solid fa-magnifying-glass"></i>online job
+                portal</a>
+            <a class="navbar-brand" routerLink="/about-us"> About us</a>
+            <a class="navbar-brand" routerLink="/contact-us">Contact us</a>
+        </div>
+
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="bar">
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/post-job">
+                            <p>add Job</p>
+
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/employer-jobs">
+                            <p>My Jobs</p>
+                        </a>
+                    </li>
+                    <li><button class="btn" (click)="Logout()">
+                            <i style="color: #f10606">Logout</i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<router-outlet></router-outlet>
+<div class="container-fluid pt-3 mt-3">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <form [formGroup]="jobFormGroup" (ngSubmit)="addJob()">
+                <!-- customer -->
+
+                <h2>fill in the job details</h2>
+                <div class="form-group row">
+                    <input type="hidden" id="employerId" name="employerId" value="{}">
+
+                    <label class="col-2 col-form-label"> Title :</label>
+                    <div class="col-8">
+                        <input type="text" class="form-control" placeholder="job  name" formControlName="title">
+
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <label class="col-2 col-form-label"> Company Name :</label>
+                    <div class="col-8">
+                        <input type="text" class="form-control" placeholder="Company Name"
+                            formControlName="companyName">
+
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <label class="col-2 col-form-label"> Job Description:</label>
+                    <div class="col-8">
+                        <input type="text" class="form-control" placeholder=" about job"
+                            formControlName="jobDescription">
+
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <label class="col-2 col-form-label"> skills Required :</label>
+                    <div class="col-8">
+                        <input type="text" class="form-control" placeholder="skills" formControlName="skillsRequired">
+
+                    </div>
+
+                </div>
+                <h2>job location:</h2>
+                <div class="form-group row">
+                    <label class="col-2 col-form-label"> street :</label>
+                    <div class="col-8">
+                        <input type="text" class="form-control" placeholder="street" formControlName="street">
+
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <label class="col-2 col-form-label"> city :</label>
+                    <div class="col-8">
+                        <input type="text" class="form-control" placeholder="city" formControlName="city">
+
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <label class="col-2 col-form-label"> pincode :</label>
+                    <div class="col-8">
+                        <input type="text" class="form-control" placeholder="pincode" formControlName="pincode">
+
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <label class="col-2 col-form-label"> state :</label>
+                    <div class="col-8">
+                        <input type="text" class="form-control" placeholder="state" formControlName="state">
+
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <label class="col-2 col-form-label"> country :</label>
+                    <div class="col-8">
+                        <input type="text" class="form-control" placeholder="country" formControlName="country">
+
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <label class="col-2 col-form-label">Job Type</label>
+                    <div class="col-8">
+                        <select name="jobType" formControlName="jobType" class="form-control">
+                            <option value="PART-TIME">PART-TIME</option>
+                            <option value="FULL-TIME">FULL-TIME</option>
+                            <option value="INTERNSHIP">INTERNSHIP</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <label class="col-2 col-form-label">Salary Range</label>
+                    <div class="col-8">
+                        <select name="salaryRange" formControlName="salaryRange" class="form-control">
+                            <option value="2LPA - 4LPA">2LPA-4LPA</option>
+                            <option value="4LPA - 6LPA">4LPA-6LPA</option>
+                            <option value="6LPA - 8LPA">6LPA-8LPA</option>
+                            <option value="4LPA - 6LPA">8LPA-10LPA</option>
+                            <option value="6LPA - 8LPA">10LPA-12LPA</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <label class="col-2 col-form-label">Experience</label>
+                    <div class="col-8">
+                        <select name="experience" formControlName="experience" class="form-control">
+                            <option value="Fresher">Fresher</option>
+                            <option value="1-3 years">1-3 years</option>
+                            <option value="5+ years">5+ years</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div formGroupName="category">
+                        <label class="col-2 col-form-label">job-category :</label>
+                        <div class="col-8">
+                            <select name="categoryId" formControlName="categoryId" class="form-control">
+                                <option *ngFor="let category of categories" [value]="category.categoryId">
+                                    {{category.jobCategory}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div formGroupName="employerjobs">
+                        <input type="text" formControlName="employerId" [(ngModel)]="currentEmployerId" hidden>
+                    </div>
+                </div>
+
+                <div>
+                    <input type="submit" class="btn btn-success" value="submit">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,222 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <div> <a class="navbar-brand" href="#"><i class="fa-solid fa-magnifying-glass"></i>online job portal</a>
+      <a class="navbar-brand" routerLink="/about-us"> About us</a>
+      <a class="navbar-brand" routerLink="/contact-us">Contact us</a>
+    </div>
+
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="bar">
+      <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/register-employer">
+              <p>register employer</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/register-employee">
+              <p>register Employee</p>
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">Login</a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
+              <li><a class="dropdown-item" routerLink="/login" routerLinkActive="active">employee</a></li>
+              <li><a class="dropdown-item" routerLink="/login-employer" routerLinkActive="active">employer</a></li>
+              <li><a class="dropdown-item" routerLink="/login-admin" routerLinkActive="active">admin</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="container justify-content-center col-6">
+  <h2>Add New Employee Details</h2>
+  <hr />
+  <form [formGroup]="employeeFormGroup" (ngSubmit)="addEmployee()">
+    <!--Employee FirstName -->
+    <div class="mb-3">
+      <select name="role" formControlName="role" class="form-control">
+        <option value="PART-TIME">employee</option>
+
+      </select>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">First Name</label>
+      <input type="name" class="form-control" formControlName="firstName" />
+      <div *ngIf="
+          employeeFormGroup.controls['firstName'].dirty ||
+          employeeFormGroup.controls['firstName'].touched
+          ">
+
+        <div class="alert alert-danger" *ngIf="employeeFormGroup.controls['firstName'].errors?.['required']">
+          please enter your first name
+        </div>
+        <div class="alert alert-danger" *ngIf="employeeFormGroup.controls['firstName'].errors?.['pattern']">
+          First name is invalid.only alphabets are allowed
+        </div>
+      </div>
+    </div>
+    <!--Employer LastName -->
+    <div class="mb-3">
+      <label class="form-label">Last Name</label>
+      <input type="name" class="form-control" formControlName="lastName" />
+      <div *ngIf="
+          employeeFormGroup.controls['lastName'].dirty ||
+          employeeFormGroup.controls['lastName'].touched
+          ">
+
+        <div class="alert alert-danger" *ngIf="employeeFormGroup.controls['lastName'].errors?.['required']">
+          please enter your Last name
+        </div>
+        <div class="alert alert-danger" *ngIf="employeeFormGroup.controls['lastName'].errors?.['pattern']">
+          last name is invalid.only alphabets are allowed
+        </div>
+      </div>
+    </div>
+
+    <!--Employer Email -->
+    <div class="mb-3">
+      <label class="form-label">Employee Email</label>
+      <input type="name" class="form-control" formControlName="emailId" />
+      <div *ngIf="
+          employeeFormGroup.controls['emailId'].dirty ||
+          employeeFormGroup.controls['emailId'].touched
+          ">
+        <div class="alert alert-danger" *ngIf="employeeFormGroup.controls['emailId'].errors?.['required']">
+          please enter your email Id
+        </div>
+        <div class="alert alert-danger" *ngIf="employeeFormGroup.controls['emailId'].errors?.['email']">
+          email is invalid
+        </div>
+      </div>
+    </div>
+    <!--Employer password -->
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" formControlName="password">
+      <div *ngIf="
+            employeeFormGroup.controls['password'].dirty ||
+            employeeFormGroup.controls['password'].touched
+            ">
+        <div class="alert alert-danger" *ngIf="employeeFormGroup.controls['password'].errors?.['required']">
+          please enter a strong password
+        </div>
+        <div class="alert alert-danger" *ngIf="employeeFormGroup.controls['password'].errors?.['password']">
+          password is invalid
+        </div>
+      </div>
+    </div>
+
+
+    <!--Employer contactNo -->
+    <div class="mb-3">
+      <label class="form-label"> Mobile No</label>
+      <input type="number" class="form-control" formControlName="contactNo" />
+      <div *ngIf="
+          employeeFormGroup.controls['contactNo'].dirty ||
+          employeeFormGroup.controls['contactNo'].touched
+          ">
+        <div class="alert alert-danger" *ngIf="employeeFormGroup.controls['contactNo'].errors?.['required']">
+          please enter your mobile number
+        </div>
+      </div>
+    </div>
+    <!--Employer street-->
+    <div class="mb-3">
+      <label class="form-label">street</label>
+      <input type="name" class="form-control" formControlName="street" />
+      <div *ngIf="
+      employeeFormGroup.controls['street'].dirty ||
+      employeeFormGroup.controls['street'].touched
+      ">
+
+        <div class="alert alert-danger" *ngIf="employeeFormGroup.controls['street'].errors?.['required']">
+          street
+        </div>
+        <div class="alert alert-danger" *ngIf="employeeFormGroup.controls['street'].errors?.['pattern']">
+          street name is invalid.only alphabets are allowed
+        </div>
+      </div>
+    </div>
+    <!--Employer city-->
+    <div class="mb-3">
+      <label class="form-label">city</label>
+      <input type="name" class="form-control" formControlName="city" />
+      <div *ngIf="
+      employeeFormGroup.controls['city'].dirty ||
+      employeeFormGroup.controls['city'].touched
+      ">
+
+        <div class="alert alert-danger" *ngIf="employeeFormGroup.controls['city'].errors?.['required']">
+          city
+        </div>
+        <div class="alert alert-danger" *ngIf="employeeFormGroup.controls['city'].errors?.['pattern']">
+          city name is invalid.only alphabets are allowed
+        </div>
+      </div>
+    </div>
+    <!--Employer state-->
+    <div class="mb-3">
+      <label class="form-label">state</label>
+      <input type="name" class="form-control" formControlName="state" />
+      <div *ngIf="
+          employeeFormGroup.controls['state'].dirty ||
+          employeeFormGroup.controls['state'].touched
+          ">
+
+        <div class="alert alert-danger" *ngIf="employeeFormGroup.controls['state'].errors?.['required']">
+          state
+        </div>
+        <div class="alert alert-danger" *ngIf="employeeFormGroup.controls['state'].errors?.['pattern']">
+          state name is invalid.only alphabets are allowed
+        </div>
+      </div>
+    </div>
+    <!--Employer country-->
+    <div class="mb-3">
+      <label class="form-label">country</label>
+      <input type="name" class="form-control" formControlName="country" />
+      <div *ngIf="
+          employeeFormGroup.controls['country'].dirty ||
+          employeeFormGroup.controls['country'].touched
+          ">
+
+        <div class="alert alert-danger" *ngIf="employeeFormGroup.controls['country'].errors?.['required']">
+          country
+        </div>
+        <div class="alert alert-danger" *ngIf="employeeFormGroup.controls['country'].errors?.['pattern']">
+          country name is invalid.only alphabets are allowed
+        </div>
+      </div>
+    </div>
+    <!--Employer pincode -->
+    <div class="mb-3">
+      <label class="form-label"> Pincode</label>
+      <input type="number" class="form-control" formControlName="pincode" />
+      <div *ngIf="
+          employeeFormGroup.controls['pincode'].dirty ||
+          employeeFormGroup.controls['pincode'].touched
+          ">
+        <div class="alert alert-danger" *ngIf="employeeFormGroup.controls['pincode'].errors?.['required']">
+          please enter your pincode
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mb-3">
+      <input type="submit" value="Add Employee" class="btn btn-primary" [disabled]="employeeFormGroup.invalid" />
+    </div>
+
+  </form>
+</div>

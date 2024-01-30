@@ -1,0 +1,121 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+  <div class="container-fluid">
+    <div> <a class="navbar-brand" routerLink="/admin-page"><i class="fa-solid fa-magnifying-glass"></i>online job portal</a>
+      <a class="navbar-brand" routerLink="/about-us"> About us</a>
+      <a class="navbar-brand" routerLink="/contact-us">Contact us</a>
+    </div>
+
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="bar">
+      <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/register-admin">
+              <p>register Admin</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/employee-list">
+              <p>All Employees</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/employer-list">
+              <p>All Employers</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/job-category">
+              <p>Add Category</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/job-list">
+              <p>All Jobs</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/list-jobcategories">
+              <p> Category List</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/list-jobapplications">
+              <p> All Job Applicattions</p>
+            </a>
+          </li>
+          <li><button class="btn" (click)="Logout()">
+            <i style="color: #f10606">Logout</i>
+          </button>
+        </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>
+<div class="container justify-content-center col-6">
+  <h2></h2>Register new admin
+  <hr />
+  <form [formGroup]="adminFormGroup" (ngSubmit)="addAdmin()">
+    <!--Admin Name -->
+    <div class="mb-3">
+      <label class="form-label">Admin Name</label>
+      <input type="name" class="form-control" formControlName="adminName" />
+      <div *ngIf="
+          adminFormGroup.controls['adminName'].touched ||
+          adminFormGroup.controls['adminName'].dirty
+          ">
+
+        <div class="alert alert-danger" *ngIf="adminFormGroup.controls['adminName'].errors?.['required']">
+          admin name is required
+        </div>
+        <div class="alert alert-danger" *ngIf="adminFormGroup.controls['adminName'].errors?.['pattern']">
+          Admin name is invalid.only alphabets are allowed
+        </div>
+      </div>
+    </div>
+
+    <!--Admin Email -->
+    <div class="mb-3">
+      <label class="form-label">Admin Email</label>
+      <input type="name" class="form-control" formControlName="emailId" />
+      <div *ngIf="
+          adminFormGroup.controls['emailId'].touched ||
+          adminFormGroup.controls['emailId'].dirty
+          ">
+        <div class="alert alert-danger" *ngIf="adminFormGroup.controls['emailId'].errors?.['required']">
+          Admin Email is required
+        </div>
+        <div class="alert alert-danger" *ngIf="adminFormGroup.controls['emailId'].errors?.['email']">
+          Admin email is invalid
+        </div>
+
+
+      </div>
+    </div>
+    <!--Admin Password-->
+    <div class="mb-3">
+      <label class="form-label">Admin Password</label>
+      <input type="password" class="form-control" formControlName="password" />
+      <div *ngIf="
+          adminFormGroup.controls['password'].touched ||
+           adminFormGroup.controls['password'].dirty
+           ">
+        <div class="alert alert-danger" *ngIf="adminFormGroup.controls['password'].errors?.['required']">
+          Admin Password is required
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <input type="submit" value="Add Admin" class="btn btn-primary" [disabled]="adminFormGroup.invalid" />
+    </div>
+  </form>
+</div>
